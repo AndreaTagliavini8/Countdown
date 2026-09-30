@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Countdown</title>
+<style>
+:root{--bg:#f3f6f4;--ink:#12302b;--mute:#5d7570;--a:#1f7a6b;--b:#e9b949;--card:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1c1a;--ink:#eaf3f0;--mute:#9bb5af;--card:#182a27}}
+:root[data-theme="dark"]{--bg:#0f1c1a;--ink:#eaf3f0;--mute:#9bb5af;--card:#182a27}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;text-align:center}
+main{max-width:640px;margin:0 auto;padding:40px 20px 56px}
+h1{font-size:clamp(1.8rem,7vw,2.8rem);margin:0 0 6px;font-weight:700}
+p.sub{margin:0 0 28px;color:var(--mute);font-family:system-ui,sans-serif}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.u{background:var(--card);border-radius:14px;padding:16px 4px;border:2px solid var(--a)}
+.u b{display:block;font-size:clamp(1.8rem,9vw,3rem);font-variant-numeric:tabular-nums;line-height:1}
+.u span{font-family:system-ui,sans-serif;font-size:.8rem;color:var(--mute)}
+#fine{font-size:1.6rem;margin:0;color:var(--a)}
+.g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:32px}
+.g svg{width:100%;height:auto;border-radius:12px;display:block}
+@media (max-width:480px){.g{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<main>
+<h1>Manca poco</h1>
+<p class="sub">Countdown fino alle 15:00 di oggi</p>
+<div class="cd" id="cd" aria-live="off">
+<div class="u"><b id="d">0</b><span>giorni</span></div>
+<div class="u"><b id="h">00</b><span>ore</span></div>
+<div class="u"><b id="m">00</b><span>minuti</span></div>
+<div class="u"><b id="s">00</b><span>secondi</span></div>
+</div>
+<p id="fine" hidden>È il momento!</p>
+<div class="g">
+<svg viewBox="0 0 200 200" role="img" aria-label="Immagine 1 segnaposto"><rect width="200" height="200" fill="#1f7a6b"/><circle cx="100" cy="90" r="34" fill="#e9b949"/><text x="100" y="170" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="16">Immagine 1</text></svg>
+<svg viewBox="0 0 200 200" role="img" aria-label="Immagine 2 segnaposto"><rect width="200" height="200" fill="#e9b949"/><rect x="66" y="56" width="68" height="68" fill="#1f7a6b"/><text x="100" y="170" text-anchor="middle" fill="#12302b" font-family="sans-serif" font-size="16">Immagine 2</text></svg>
+<svg viewBox="0 0 200 200" role="img" aria-label="Immagine 3 segnaposto"><rect width="200" height="200" fill="#12302b"/><polygon points="100,52 138,120 62,120" fill="#e9b949"/><text x="100" y="170" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="16">Immagine 3</text></svg>
+</div>
+</main>
+<script>
+var target=new Date("2026-09-30T15:00:00+02:00").getTime();
+function p(n){return n<10?"0"+n:""+n}
+function tick(){
+var t=target-Date.now();
+if(t<=0){document.getElementById("cd").hidden=true;document.getElementById("fine").hidden=false;return}
+var s=Math.floor(t/1000);
+document.getElementById("d").textContent=Math.floor(s/86400);
+document.getElementById("h").textContent=p(Math.floor(s%86400/3600));
+document.getElementById("m").textContent=p(Math.floor(s%3600/60));
+document.getElementById("s").textContent=p(s%60);
+setTimeout(tick,1000)}
+tick();
+</script>
+</body>
+</html>
