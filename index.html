@@ -1,47 +1,53 @@
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Manca poco</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700;800&display=swap">
+<meta name="color-scheme" content="dark">
+<title>Mezzanotte Lab</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap">
 <style>
-:root{--bg:#e4eaee;--ink:#1b2733;--mute:#5b6b78;--card:#fff;--tile:#1b2733;--tileink:#fff;--acc:#ff5a4d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f151b;--ink:#eef2f5;--mute:#93a3b0;--card:#18212a;--tile:#eef2f5;--tileink:#0f151b}}
-:root[data-theme="dark"]{--bg:#0f151b;--ink:#eef2f5;--mute:#93a3b0;--card:#18212a;--tile:#eef2f5;--tileink:#0f151b}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{--ink:#fff;--mute:rgba(255,255,255,.68);--line:rgba(255,255,255,.16);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:#05041a}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif}
-main{max-width:720px;margin:0 auto;padding:44px 18px 60px}
-header{text-align:center;margin-bottom:26px}
-h1{font-size:clamp(2.4rem,11vw,4.6rem);line-height:.95;margin:0;font-weight:800;letter-spacing:-.03em}
-.when{margin:12px 0 0;color:var(--mute);font-size:1.05rem}
-.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 46px}
-.u{background:var(--tile);color:var(--tileink);border-radius:18px;padding:18px 4px 14px;text-align:center;position:relative}
-.u b{display:block;font-size:clamp(2rem,10.5vw,3.8rem);font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
-.u span{display:block;margin-top:8px;font-size:.85rem;opacity:.7}
-.u.s{background:var(--acc);color:#fff}
-.u.s span{opacity:.9}
-#fine{text-align:center;font-size:2rem;font-weight:800;color:var(--acc);margin:0 0 46px}
-.g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-figure{margin:0;background:var(--card);border-radius:18px;overflow:hidden}
-figure img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#cfd8de}
-figcaption{padding:12px 14px;font-weight:700}
+[hidden]{display:none!important}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:Poppins,system-ui,-apple-system,"Segoe UI",sans-serif;background:linear-gradient(100deg,#27258f 0%,#15125c 38%,#06051c 72%,#000 100%) fixed;text-align:center}
+main{max-width:760px;margin:0 auto;padding:44px 18px 64px}
+#logo{width:84px;height:84px;border-radius:50%;display:block;margin:0 auto 14px;box-shadow:0 0 0 1px var(--line)}
+.brand{margin:0;font-weight:400;letter-spacing:.32em;font-size:.85rem;text-transform:uppercase;color:var(--mute)}
+.cd{display:flex;justify-content:center;align-items:flex-start;gap:clamp(6px,2.5vw,22px);margin:46px 0 34px}
+.u{min-width:0;flex:0 1 auto}
+.u b{display:block;font-weight:300;font-size:clamp(2.3rem,12vw,5rem);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.u span{display:block;margin-top:10px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.sep{display:flex;flex-direction:column;gap:clamp(8px,3vw,20px);padding-top:clamp(.6rem,3.5vw,1.6rem)}
+.sep svg{width:clamp(7px,2.4vw,14px);height:clamp(7px,2.4vw,14px);fill:#fff}
+#fine{font-weight:300;font-size:2.4rem;margin:46px 0 34px}
+.msg{margin:0;font-size:clamp(1.05rem,4.2vw,1.4rem);font-weight:300;line-height:1.5}
+.when{margin:14px 0 0;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:54px}
+figure{margin:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.05)}
+figure img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#0d0b3a}
+figcaption{padding:12px 14px;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
 </style>
 </head>
 <body>
 <main>
-<header>
-<h1>Manca poco</h1>
-<p class="when">Sabato 31 ottobre, ore 15:15</p>
-</header>
+<img id="logo" src="logo.png" alt="Mezzanotte Lab">
+<p class="brand">mezzanottelab</p>
 <div class="cd" id="cd">
 <div class="u"><b id="d">0</b><span>giorni</span></div>
+<div class="sep"><i class="st"></i><i class="st"></i></div>
 <div class="u"><b id="h">00</b><span>ore</span></div>
+<div class="sep"><i class="st"></i><i class="st"></i></div>
 <div class="u"><b id="m">00</b><span>minuti</span></div>
-<div class="u s"><b id="s">00</b><span>secondi</span></div>
+<div class="sep"><i class="st"></i><i class="st"></i></div>
+<div class="u"><b id="s">00</b><span>secondi</span></div>
 </div>
-<p id="fine" hidden>È il momento!</p>
+<p id="fine" hidden>È il momento.</p>
+<p class="msg">La nostra collezione sta arrivando.<br>Rimanete connessi.</p>
+<p class="when">31 ottobre · 15:15</p>
 <section class="g">
 <figure><img src="maglietta-1.jpg" data-k="shirt" alt="Maglietta 1"><figcaption>Maglietta</figcaption></figure>
 <figure><img src="pantaloni-1.jpg" data-k="pants" alt="Pantaloni 1"><figcaption>Pantaloni</figcaption></figure>
@@ -50,16 +56,23 @@ figcaption{padding:12px 14px;font-weight:700}
 </section>
 </main>
 <script>
+var STAR='<svg viewBox="0 0 10 10"><path d="M5 0Q5.6 4.4 10 5Q5.6 5.6 5 10Q4.4 5.6 0 5Q4.4 4.4 5 0Z"/></svg>';
+Array.prototype.forEach.call(document.querySelectorAll(".st"),function(e){e.innerHTML=STAR;e.style.display="block"});
+function uri(s){return "data:image/svg+xml,"+encodeURIComponent(s)}
+var SP='<path d="M50 14.5C50.6 22 50.8 26 55 28.5L45 28.5C49.2 26 49.4 22 50 14.5Z"/>';
+var LOGO=uri('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#000"/><g fill="#fff"><circle cx="50" cy="50" r="23"/>'+SP+'<g transform="translate(0,100) scale(1,-1)">'+SP+'</g></g><ellipse cx="50" cy="50" rx="16" ry="22" fill="#000"/><g fill="#fff"><rect x="49.4" y="28" width="1.2" height="17"/><rect x="49.4" y="55" width="1.2" height="17"/></g></svg>');
 var P={shirt:"M70 40 L30 65 L45 110 L65 100 L65 230 L135 230 L135 100 L155 110 L170 65 L130 40 Q100 65 70 40Z",pants:"M60 40 H140 L152 230 H108 L100 100 L92 230 H48 Z"};
-function ph(k){var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250"><rect width="200" height="250" fill="#cfd8de"/><path d="'+P[k]+'" fill="#8fa1ae"/></svg>';return "data:image/svg+xml,"+encodeURIComponent(s)}
-Array.prototype.forEach.call(document.querySelectorAll("img[data-k]"),function(i){var k=i.getAttribute("data-k");i.onerror=function(){i.onerror=null;i.src=ph(k)}; if(i.complete&&i.naturalWidth===0){i.onerror()}});
+function ph(k){return uri('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250"><rect width="200" height="250" fill="#100e48"/><path d="'+P[k]+'" fill="#ffffff" fill-opacity=".22"/></svg>')}
+function fb(i,u){i.onerror=function(){i.onerror=null;i.src=u};if(i.complete&&i.naturalWidth===0)i.onerror()}
+fb(document.getElementById("logo"),LOGO);
+Array.prototype.forEach.call(document.querySelectorAll("img[data-k]"),function(i){fb(i,ph(i.getAttribute("data-k")))});
 var target=new Date("2026-10-31T15:15:00+01:00").getTime();
 function p(n){return n<10?"0"+n:""+n}
 function tick(){
 var t=target-Date.now();
 if(t<=0){document.getElementById("cd").hidden=true;document.getElementById("fine").hidden=false;return}
 var s=Math.floor(t/1000);
-document.getElementById("d").textContent=Math.floor(s/86400);
+document.getElementById("d").textContent=p(Math.floor(s/86400));
 document.getElementById("h").textContent=p(Math.floor(s%86400/3600));
 document.getElementById("m").textContent=p(Math.floor(s%3600/60));
 document.getElementById("s").textContent=p(s%60);
@@ -68,3 +81,4 @@ tick();
 </script>
 </body>
 </html>
+ 
