@@ -60,7 +60,6 @@ figcaption{padding:12px 14px;font-size:.78rem;letter-spacing:.2em;text-transform
 #lb .x{top:calc(env(safe-area-inset-top,0px) + 6px);right:8px}
 #lb .p{left:2px;top:50%}
 #lb .n{right:2px;top:50%}
-#snd{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:12px;z-index:5;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(0,0,0,.5);color:#fff;font-size:18px;line-height:1;cursor:pointer;padding:0}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 <noscript><style>figure{opacity:1!important;transform:none!important}</style></noscript>
@@ -87,8 +86,6 @@ figcaption{padding:12px 14px;font-size:.78rem;letter-spacing:.2em;text-transform
 <section class="g" id="g"></section>
 <a class="ig" id="ig" href="https://www.instagram.com/mezzanottelab/" target="_blank" rel="noopener">Seguici su Instagram</a>
 </main>
-<audio id="mus" src="musica.mp3" loop preload="auto"></audio>
-<button id="snd" type="button" hidden aria-label="Audio on/off">🔊</button>
 <div id="lb" hidden><button class="x" aria-label="Chiudi">✕</button><button class="p" aria-label="Precedente">‹</button><img alt=""><button class="n" aria-label="Successiva">›</button></div>
 <script>
 var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -153,22 +150,6 @@ if(!locked&&Date.now()<target){g.classList.remove("locked")}
 tick();
 var bv=document.getElementById("bgv");
 if(reduce){bv.remove()}else{bv.addEventListener("playing",function(){bv.classList.add("on")});var pr=bv.play();if(pr&&pr.catch)pr.catch(function(){})}
-var mus=document.getElementById("mus"),snd=document.getElementById("snd"),want=true,started=false,EV=["touchend","pointerup","click","keydown"];
-mus.volume=.6;
-function start(){
-if(started||!want)return;
-var a=mus.play();
-if(a&&a.then){a.then(function(){started=true;snd.textContent="🔊";EV.forEach(function(n){document.removeEventListener(n,first,true)})}).catch(function(){})}
-else{started=true;snd.textContent="🔊"}}
-function first(e){if(e.target&&e.target.closest&&e.target.closest("#snd"))return;start();if(bv&&bv.paused){var b=bv.play();if(b&&b.catch)b.catch(function(){})}}
-fetch("musica.mp3",{method:"HEAD"}).then(function(r){
-if(!r.ok)throw 0;
-snd.hidden=false;snd.textContent="🔇";
-start();
-EV.forEach(function(n){document.addEventListener(n,first,true)})}).catch(function(){});
-snd.addEventListener("click",function(){
-if(mus.paused){want=true;var a=mus.play();if(a&&a.catch)a.catch(function(){});started=true;snd.textContent="🔊"}
-else{want=false;mus.pause();snd.textContent="🔇"}});
 </script>
 </body>
 </html>
